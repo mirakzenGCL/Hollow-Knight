@@ -54,7 +54,7 @@ body {
 }
 
 a {
-    color: #b59351;
+    color: #5c6d9b;
     text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ header {
 .navbar-text-hilighted {
     padding-top: .3125rem;
     padding-bottom: .3125rem;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     font-size: 1.25rem;
     color: #ebab34;
 }
@@ -74,8 +74,8 @@ header {
 .navbar-text {
     padding-top: .3125rem;
     padding-bottom: .3125rem;
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     font-size: 1.25rem;
 }
 
@@ -120,7 +120,8 @@ header {
 }
 
 .container-background {
-    background-image: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/q=100/hk/img/background_content.png");
+    background-color: #000000;
+    background-image: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/q=100/hk/img/background_content_faded.png");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -134,7 +135,7 @@ header {
 
 .rounded-border {
     border-radius: 10px;
-    border: 1px solid #453a24;
+    border: 1px solid #bdbebf;
 }
 
 .rounded {
@@ -223,11 +224,8 @@ td.vert-align {
 }
 
 .mark {
-    background: url("https://cdn.statically.io/img/dsa-cdn.mirakzen.ru/img//Mark_Dark_Sing.png");
-    background-size: 64px;
+    background: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/Mark_Vessel.png");
     background-size: cover;
-    width: 64px;
-    height: 64px;
 }
 
 .mark-button {
