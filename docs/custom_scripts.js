@@ -25,6 +25,9 @@ function show_stored_page_data(game, data, amount, counter_id, mode_percent, mod
             item_count++;
             if (mode_percent) {
                 percent_count++;
+                if (item == 2) {
+                    percent_count++;
+                }
             }
             if (mode_essence) {
                 essence_count += item;
@@ -60,6 +63,9 @@ function mark_item(element, percent, essence) {
             localStorage.setItem(element_id, essence);
         } else {
             localStorage.setItem(element_id, 1);
+            if (percent == 2) {
+                localStorage.setItem(element_id, percent);
+            }
         }
         
         count++;
