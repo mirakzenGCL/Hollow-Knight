@@ -6,7 +6,7 @@ function reset_storage(reload = true) {
 };
 
 
-function show_stored_page_data(game, data, amount, counter_id, mode_percent, mode_essence) {
+function show_stored_page_data(game, data, amount, counter_id, mode_percent, mode_essence, entire) {
     var count = 0;
 
     var percent_count = parseInt(document.getElementById("percent_counter").innerHTML);
@@ -38,6 +38,11 @@ function show_stored_page_data(game, data, amount, counter_id, mode_percent, mod
     }
     if (counter_id != "") {
         document.getElementById(counter_id).textContent = count;
+        if (entire) {
+            entire_percent = Math.floor(count / entire);
+            percent_count += entire_percent;
+            document.getElementById(counter_id + ".c").textContent = entire_percent;
+        }
     }
     document.getElementById("percent_counter").textContent = percent_count;
     document.getElementById("item_counter").textContent = item_count;
@@ -45,13 +50,18 @@ function show_stored_page_data(game, data, amount, counter_id, mode_percent, mod
 };
 
 
-function mark_item(element, percent, essence) {
+function mark_item(element, percent, essence, entire) {
     element_id = element.parentNode.parentNode.id;
-
     table_id = element.parentNode.parentNode.parentNode.parentNode.id;
+
     table = table_id.split('-');
     count_id = "counter-" + table[1];
+    count_entire_id = count_id + ".c";
     var count = parseInt(document.getElementById(count_id).innerHTML);
+    var count_entire = 0;
+    if (entire) {
+        count_entire = parseInt(document.getElementById(count_entire_id).innerHTML);
+    }
 
     var percent_count = parseInt(document.getElementById("percent_counter").innerHTML);
     var item_count = parseInt(document.getElementById("item_counter").innerHTML);
@@ -90,6 +100,11 @@ function mark_item(element, percent, essence) {
     }
 
     document.getElementById(count_id).textContent = count;
+    if (entire) {
+        entire_percent = Math.floor(count / entire) - count_entire;
+        percent_count += entire_percent;
+        document.getElementById(count_entire_id).textContent = Math.floor(count / entire);
+    }
     document.getElementById("percent_counter").textContent = percent_count;
     document.getElementById("item_counter").textContent = item_count;
     document.getElementById("essence_counter").textContent = essence_count;
