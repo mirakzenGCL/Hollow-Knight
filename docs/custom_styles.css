@@ -9,7 +9,7 @@
     --mark-bg-button-size: 50px;
     --mark-bg-button-padding: 5px;
 
-    --mark-bg-button-image-sm: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/h=30/hk/img/Mark_Vessel.png");
+    --mark-bg-button-image-sm: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/h=28/hk/img/Mark_Vessel.png");
     --mark-bg-button-size-sm: 30px;
     --mark-bg-button-padding-sm: 1px;
 
@@ -61,8 +61,11 @@ body {
     .container-center {
         width: 100%;
         min-width: 650px;
-        margin-left: 1px;
-        margin-right: 1px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .body-background {
+        background-image: none !important;
     }
 }
 
@@ -264,6 +267,10 @@ img.vertical-centered {
 
 /* Colors */
 
+.text-main {
+    color: var(--main-color) !important;
+}
+
 .text-white {
     color: var(--main-text-color);
 }
@@ -379,23 +386,33 @@ table {
 }
 
 th, td {
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     vertical-align: center;
     text-align: center;
     border: 0;
     margin: 0;
 }
 
+table.table-sm th,
+table.table-sm td {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+}
+
+table.table-sm tr td:last-child {
+    padding-top: 0.425rem !important;
+}
+
 tr td:first-child,
 tr th:first-child {
-    padding-left: 0 !important;
+    padding-left: 0.2rem !important;
 }
 tr td:last-child,
 tr th:last-child {
-    padding-right: 0 !important;
+    padding-right: 0.2rem !important;
 }
 
 td.no-padding {

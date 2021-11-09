@@ -7,23 +7,31 @@
         <meta name="author" content="Mir, mirakzen">
 
         <title>Hollow Knight Completion</title>
-        <link rel="shortcut icon" href="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/Knight.png">
+        <link rel="shortcut icon" href="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/Knight_favicon.png">
 
         <link href="custom_styles.css" rel="stylesheet">
+
+        <script type="text/javascript">
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            var viewport = document.querySelector('meta[name="viewport"]');
+            if (width < 650) {
+                viewport.content = "width=device-width, initial-scale=" + (width / 675);
+            }
+        </script>
     </head>
 
     <body class="body-background container-flex-vertical text-white">
         <header class="container-center container-flex-horizontal mt-15 mb-15">
             <a class="navbar-brand-link" style="opacity:0;">HK</a>
             <div class="element-center">
-                <a class="navbar-link" style="color: #5c6d9b;">Hollow Knight</a>
+                <a class="navbar-link text-main">Hollow Knight</a>
                 <a class="navbar-link" href="silksong.html">HK: Silksong</a>
             </div>
             <a class="navbar-brand-link" href="en.html">En</a>
         </header>
 
         <header class="container-center text-center mb-05">
-            <span class="navbar-text"><span id="item_counter">0</span> /100000 Сделано</span>
+            <span class="navbar-text"><span id="item_counter">0</span> /100500 Действий</span>
 
             <span class="navbar-text mx-2"><span class="text-needed" id="percent_counter">0</span> /112%</span>
 
@@ -45,7 +53,7 @@
                             <th>Местоположение</th>
                             <th>Условия</th>
                             <th>Процент</th>
-                            <th>Отметка</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,7 +73,7 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_nail-2">
@@ -87,7 +95,7 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_nail-3">
@@ -109,7 +117,7 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_nail-4">
@@ -131,7 +139,7 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                     </tbody>
@@ -148,8 +156,8 @@
                     <thead>
                         <tr>
                             <th>Местоположение</th>
-                            <th class="text-center th-padding">Подробности</th>
-                            <th>Отметка</th>
+                            <th>Подробности</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>                        
@@ -161,7 +169,7 @@
                                 Слева от трамвайных путей находится проход, пройдя по которому можно попасть в засаду двух <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9D%D0%B8%D0%B7%D1%88%D0%B8%D0%B9_%D1%87%D1%80%D0%B5%D0%B2%D0%B5%D0%BD%D1%8C">низших чревней</a>, за которыми и будет руда.
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '0', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_pale_ore-2">
@@ -172,7 +180,7 @@
                                 Находится на <a href="https://hollowknight.fandom.com/ru/wiki/%D0%92%D0%B5%D0%BD%D0%B5%D1%86_%D0%A5%D0%B0%D0%BB%D0%BB%D0%BE%D1%83%D0%BD%D0%B5%D1%81%D1%82%D0%B0">Венце Халлоунеста</a>, у пьедестала статуи <a href="/ru/wiki/%D0%9B%D1%83%D1%87%D0%B5%D0%B7%D0%B0%D1%80%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Лучезарности</a>.
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '0', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_pale_ore-3">
@@ -183,7 +191,7 @@
                                 Находится за боссом <a href="/ru/wiki/%D0%9D%D0%BE%D1%81%D0%BA">Носк</a>, найти которого можно в секретном месте, доступ к которому открывается разбитием стены в помещении слева от <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B9_%D0%BA%D0%BB%D1%8E%D1%87">горячего ключа</a>.
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '0', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_pale_ore-4">
@@ -194,7 +202,7 @@
                                 Даёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9E%D1%82%D0%B5%D1%86_%D0%B3%D1%83%D1%81%D0%B5%D0%BD%D0%B8%D1%87%D0%B5%D0%BA">Отец гусеничек</a> за освобождение 31 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D1%83%D1%81%D0%B5%D0%BD%D0%B8%D1%87%D0%BA%D0%B8">гусенички</a>.
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '0', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_pale_ore-5">
@@ -205,7 +213,7 @@
                                 Даёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9F%D1%80%D0%BE%D0%B2%D0%B8%D0%B4%D0%B8%D1%86%D0%B0">Провидица</a> за сбор 300 <a href="">сущности</a>.
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '0', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_pale_ore-6">
@@ -216,7 +224,7 @@
                                 Награда в <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BE%D0%BB%D0%B8%D0%B7%D0%B5%D0%B9_%D0%B3%D0%BB%D1%83%D0%BF%D1%86%D0%BE%D0%B2">Колизее глупцов</a> за прохождение <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BE%D0%BB%D0%B8%D0%B7%D0%B5%D0%B9_%D0%B3%D0%BB%D1%83%D0%BF%D1%86%D0%BE%D0%B2_%E2%80%94_%D0%98%D1%81%D0%BF%D1%8B%D1%82%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B7%D0%B0%D0%B2%D0%BE%D0%B5%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F">Испытания завоевателя</a>.
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '0', 0, '')"></button>
                             </td>
                         </tr>
                     </tbody>
@@ -234,9 +242,9 @@
                         <tr>
                             <th>Техника</th>
                             <th>Местоположение</th>
-                            <th class="text-center th-padding">Подробности</th>
-                            <th class="text-center th-padding">Процент</th>
-                            <th>Отметка</th>
+                            <th>Подробности</th>
+                            <th>Процент</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -244,7 +252,7 @@
                             <td>
                                 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A3%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9_%D1%83%D0%B4%D0%B0%D1%80">
                                     <img class="vertical-centered" alt="Cyclone_Slash.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Cyclone_Slash.png" decoding="async" height="80" />
-                                    Ураганный удар
+                                    <span class="nowrap">Ураганный удар</span>
                                 </a>
                             </td>
                             <td>
@@ -257,14 +265,14 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_nail_art-2">
                             <td>
                                 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A0%D0%B0%D1%81%D1%81%D0%B5%D0%BA%D0%B0%D1%8E%D1%89%D0%B8%D0%B9_%D1%83%D0%B4%D0%B0%D1%80">
                                     <img class="vertical-centered" alt="Dash_Slash.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Dash_Slash.png" decoding="async" height="80" />
-                                    Рассекающий удар
+                                    <span class="nowrap">Рассекающий удар</span>
                                 </a>
                             </td>
                             <td>
@@ -277,14 +285,14 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_nail_art-3">
                             <td>
                                 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B8%D0%B9_%D1%83%D0%B4%D0%B0%D1%80">
                                     <img class="vertical-centered" alt="Great_Slash.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Great_Slash.png" decoding="async" height="80" />
-                                    Великий удар
+                                    <span class="nowrap">Великий удар</span>
                                 </a>
                             </td>
                             <td>
@@ -297,7 +305,7 @@
                                 1%
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 1, 0, 0)"></button>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '1', 0, '')"></button>
                             </td>
                         </tr>
                     </tbody>
@@ -305,26 +313,24 @@
 
                 <div class="container-flex-horizontal">
                     <h1>
-                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9E%D1%81%D0%BA%D0%BE%D0%BB%D0%BE%D0%BA_%D0%BC%D0%B0%D1%81%D0%BA%D0%B8">Маски</a> и
-                        <br>
-                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9E%D1%81%D0%BA%D0%BE%D0%BB%D0%BE%D0%BA_%D0%BC%D0%B0%D1%81%D0%BA%D0%B8">Осколки</a>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9E%D1%81%D0%BA%D0%BE%D0%BB%D0%BE%D0%BA_%D0%BC%D0%B0%D1%81%D0%BA%D0%B8">Маски и Осколки</a>
                     </h1>
 
                     <div class="element-right">
                         <h1>
                             <span class="text-needed" id="counter-4.c">0</span>/4
-                            <br>
-                            <span id="counter-4">0</span>/16
+                            (<span id="counter-4">0</span>/16)
                         </h1>
                     </div>
                 </div>
 
-                <table id="table-4">
+                <table class="table-sm" id="table-4">
                     <thead>
                         <tr>
                             <th>Местоположение</th>
-                            <th class="text-center th-padding">Подробности</th>
-                            <th>Отметка</th>
+                            <th>Подробности</th>
+                            <th>Процент</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -336,7 +342,10 @@
                                 Продаёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B0%D0%B9">Слай</a> за <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />150 гео
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-2">
@@ -347,7 +356,10 @@
                                 Продаёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B0%D0%B9">Слай</a> за <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />500 гео
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-3">
@@ -358,7 +370,10 @@
                                 Продаёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B0%D0%B9">Слай</a> за <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />800 гео если дать ему <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BB%D1%8E%D1%87_%D0%BB%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B0">Ключ лавочника</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-4">
@@ -369,7 +384,10 @@
                                 Продаёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B0%D0%B9">Слай</a> за <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />1500 гео если дать ему <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BB%D1%8E%D1%87_%D0%BB%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B0">Ключ лавочника</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-5">
@@ -380,7 +398,10 @@
                                 В домике <a href="/ru/wiki/%D0%91%D1%80%D0%B5%D1%82%D1%82%D0%B0">Бретты</a>, после её спасения в <a href="/ru/wiki/%D0%93%D1%80%D0%B8%D0%B1%D0%BD%D1%8B%D0%B5_%D0%BF%D1%83%D1%81%D1%82%D0%BE%D1%88%D0%B8">Грибных пустошах</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-6">
@@ -391,7 +412,10 @@
                                 Зайти через <a href="/ru/wiki/%D0%93%D1%80%D0%B8%D0%B1%D0%BD%D0%B8%D1%86%D0%B0" class="mw-redirect" title="Грибница">Грибницу</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-7">
@@ -402,7 +426,10 @@
                                 На <a href="/ru/wiki/%D0%92%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%8B" class="mw-redirect" title="Вокзал Королевы">Вокзале Королевы</a>, с правой стороны
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-8">
@@ -413,7 +440,10 @@
                                 Отдаст <a href="/ru/wiki/%D0%A1%D0%B5%D1%80%D0%B0%D1%8F_%D0%BF%D0%BB%D0%B0%D0%BA%D0%B0%D0%BB%D1%8C%D1%89%D0%B8%D1%86%D0%B0" title="Серая плакальщица">Серая плакальщица</a> после выполнения её задания с <a href="/ru/wiki/%D0%9D%D0%B5%D0%B6%D0%BD%D1%8B%D0%B9_%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D0%BA" title="Нежный цветок">нежным цветком</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-9">
@@ -424,7 +454,10 @@
                                 Спровоцировать <a href="/ru/wiki/%D0%A1%D1%82%D1%80%D0%B0%D0%B6_%D0%A3%D0%BB%D1%8C%D1%8F" title="Страж Улья">Стража Улья</a> на таран непрочной стены в левой стороне комнаты перед боссом
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-10">
@@ -435,7 +468,10 @@
                                 Победа над <a href="/ru/wiki/%D0%97%D0%B0%D0%B4%D1%83%D0%BC%D1%87%D0%B8%D0%B2%D1%8B%D0%B9_%D1%87%D1%80%D0%B5%D0%B2%D0%B5%D0%BD%D1%8C" title="Задумчивый чревень">Задумчивым чревнем</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-11">
@@ -446,7 +482,10 @@
                                 Выдаст <a href="/ru/wiki/%D0%9E%D1%82%D0%B5%D1%86_%D0%B3%D1%83%D1%81%D0%B5%D0%BD%D0%B8%D1%87%D0%B5%D0%BA" title="Отец гусеничек">Отец гусеничек</a> после освобождения 5 <a href="/ru/wiki/%D0%93%D1%83%D1%81%D0%B5%D0%BD%D0%B8%D1%87%D0%BA%D0%B8" class="mw-redirect" title="Гусенички">гусеничек</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-12">
@@ -457,7 +496,10 @@
                                 Победить <a href="/ru/wiki/%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D1%82%D1%80%D0%B0%D0%B6" title="Кристаллический страж">Кристаллического стража</a> во второй раз
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-13">
@@ -468,7 +510,10 @@
                                 Найти в левой части локации после открытия стоков <a href="/ru/wiki/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9_%D0%BA%D0%BB%D1%8E%D1%87" title="Простой ключ">Простым ключом</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-14">
@@ -479,18 +524,24 @@
                                 Выдаст <a href="/ru/wiki/%D0%9F%D1%80%D0%BE%D0%B2%D0%B8%D0%B4%D0%B8%D1%86%D0%B0" title="Провидица">Провидица</a> после сбора 1500 <a href="/ru/wiki/%D0%A1%D1%83%D1%89%D0%BD%D0%BE%D1%81%D1%82%D1%8C" class="mw-redirect" title="Сущность">Сущности</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-15">
                             <td>
-                                 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B5%D0%BB%D1%91%D0%BD%D0%B0%D1%8F_%D1%82%D1%80%D0%BE%D0%BF%D0%B0" title="Земли упокоения">Зелёная тропа</a>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B5%D0%BB%D1%91%D0%BD%D0%B0%D1%8F_%D1%82%D1%80%D0%BE%D0%BF%D0%B0" title="Земли упокоения">Зелёная тропа</a>
                             </td>
                             <td class="text-start">
                                 В <a href="/ru/wiki/%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5_%D1%81%D0%B2%D1%8F%D1%82%D0%B8%D0%BB%D0%B8%D1%89%D0%B5" class="mw-redirect" title="Каменное святилище">Каменном святилище</a> (<a href="/ru/wiki/%D0%A1%D0%B2%D0%B5%D1%82%D0%BE%D0%BC%D1%83%D1%88%D0%B8%D0%B9_%D1%84%D0%BE%D0%BD%D0%B0%D1%80%D1%8C" title="Светомуший фонарь">Светомуший фонарь</a> может значительно упростить поиски)
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
                             </td>
                         </tr>
                         <tr class="uncompleted" id="hk_mask_shard-16">
@@ -501,7 +552,329 @@
                                 В комнате с <a href="/ru/wiki/%D0%96%D1%80%D1%83%D0%BD" title="Жрун">Жрунами</a>, что находится под <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B9_%D0%BA%D0%BB%D1%8E%D1%87">Горячим ключом</a>
                             </td>
                             <td>
-                                <button class="button-mark rounded-border" onclick="mark_item(this, 0, 0, 4)"></button>
+                                1/4 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/4', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="container-flex-horizontal">
+                    <h1>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A7%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%BA_%D1%81%D0%BE%D1%81%D1%83%D0%B4%D0%B0">Сосуды и Черепки</a>
+                    </h1>
+
+                    <div class="element-right">
+                        <h1>
+                            <span class="text-needed" id="counter-5.c">0</span>/3
+                            (<span id="counter-5">0</span>/9)
+                        </h1>
+                    </div>
+                </div>
+
+                <table class="table-sm" id="table-5">
+                    <thead>
+                        <tr>
+                            <th>Местоположение</th>
+                            <th>Подробности</th>
+                            <th>Процент</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="uncompleted" id="hk_vessel_fragment-1">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D1%80%D1%8F%D0%B7%D1%8C%D0%BC%D1%83%D1%82">Грязьмут</a>
+                            </td>
+                            <td class="text-start">
+                                Продаёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B0%D0%B9">Слай</a> за <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />550 гео
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-2">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D1%80%D1%8F%D0%B7%D1%8C%D0%BC%D1%83%D1%82">Грязьмут</a>
+                            </td>
+                            <td class="text-start">
+                                Продаёт <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B0%D0%B9">Слай</a> за <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />900 гео если дать ему <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BB%D1%8E%D1%87_%D0%BB%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B0">Ключ лавочника</a>
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-3">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B5%D0%BB%D1%91%D0%BD%D0%B0%D1%8F_%D1%82%D1%80%D0%BE%D0%BF%D0%B0">Зелёная тропа</a>
+                            </td>
+                            <td class="text-start">
+                                В нижней части локации (комната с кислотой и множеством <a href="https://hollowknight.fandom.com/ru/wiki/%D0%94%D1%8E%D1%80%D0%B0%D0%BD%D0%B4%D1%83">Дюранду</a>) рядом с переходом в <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%B0%D0%B4%D1%8B_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%8B">Сады Королевы</a>
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-4">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B0%D0%B1%D1%8B%D1%82%D0%BE%D0%B5_%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D1%83%D1%82%D1%8C%D0%B5">Забытое перепутье</a>
+                            </td>
+                            <td class="text-start">
+                                Слева от лифта из <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%BE%D1%80%D0%BE%D0%B4_%D1%81%D0%BB%D1%91%D0%B7">Города слёз</a>
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-5">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%BE%D1%80%D0%BE%D0%B4_%D1%81%D0%BB%D1%91%D0%B7">Город слёз</a>
+                            </td>
+                            <td class="text-start">
+                                Над <a href="/ru/wiki/%D0%92%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%8F" class="mw-redirect" title="Вокзал Короля">Вокзалом Короля</a>, возле лифта из <a href="/ru/wiki/%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_%D1%83%D0%BF%D0%BE%D0%BA%D0%BE%D0%B5%D0%BD%D0%B8%D1%8F" title="Земли упокоения">Земель упокоения</a>
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-6">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B3%D0%BD%D0%B5%D0%B7%D0%B4%D0%BE">Глубинное гнездо</a>
+                            </td>
+                            <td class="text-start">
+                                Находится в комнате над рабочим трамваем
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-7">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%92%D0%BE%D1%8E%D1%89%D0%B8%D0%B5_%D1%83%D1%82%D1%91%D1%81%D1%8B">Воющие утёсы</a>
+                            </td>
+                            <td class="text-start">
+                                Находится в <a href="/ru/wiki/%D0%93%D0%BD%D0%B5%D0%B7%D0%B4%D0%BE_%D1%80%D0%BE%D0%B3%D0%B0%D1%87%D0%B5%D0%B9" class="mw-redirect" title="Гнездо рогачей">Гнезде рогачей</a> (открывается после открытия всех станций)
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-8">
+                            <td>
+                                <a href="/ru/wiki/%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_%D1%83%D0%BF%D0%BE%D0%BA%D0%BE%D0%B5%D0%BD%D0%B8%D1%8F" title="Земли упокоения">Земли упокоения</a>
+                            </td>
+                            <td class="text-start">
+                                Выдаст <a href="/ru/wiki/%D0%9F%D1%80%D0%BE%D0%B2%D0%B8%D0%B4%D0%B8%D1%86%D0%B0" title="Провидица">Провидица</a> после сбора 700 <a href="/ru/wiki/%D0%A1%D1%83%D1%89%D0%BD%D0%BE%D1%81%D1%82%D1%8C" class="mw-redirect" title="Сущность">Сущности</a>
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_vessel_fragment-9">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%94%D1%80%D0%B5%D0%B2%D0%BD%D0%B8%D0%B9_%D0%BA%D0%BE%D1%82%D0%BB%D0%BE%D0%B2%D0%B0%D0%BD" title="Улей">Древний котлован</a>
+                            </td>
+                            <td class="text-start">
+                                Пожертвование <img class="vertical-centered" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/misc/Geo.png" decoding="async" height="25" />3000 гео в фонтан (находится над картографом)
+                            </td>
+                            <td>
+                                1/3 %
+                            </td>
+                            <td>
+                                <button class="button-mark-sm rounded-border" onclick="toggle(this, '1/3', 0, 'entire')"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="container-flex-horizontal">
+                    <h1>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8">Способности</a>
+                    </h1>
+
+                    <div class="element-right">
+                        <h1>
+                            <span class="text-needed" id="counter-6.c">0</span>/14
+                            (<span id="counter-6">0</span>/7)
+                        </h1>
+                    </div>
+                </div>
+
+                <table id="table-6">
+                    <thead>
+                        <tr>
+                            <th>Способность</th>
+                            <th>Местоположение</th>
+                            <th>Подробности</th>
+                            <th>Процент</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="uncompleted" id="hk_skill-1">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A3%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9_%D1%83%D0%B4%D0%B0%D1%80">
+                                    <img class="vertical-centered" alt="Mothwing_Cloak.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Mothwing_Cloak.png" decoding="async" height="80" />
+                                    <span class="nowrap">Накидка мотылька</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B5%D0%BB%D1%91%D0%BD%D0%B0%D1%8F_%D1%82%D1%80%D0%BE%D0%BF%D0%B0">Зелёная тропа</a>
+                            </td>
+                            <td>
+                                Получение после первой победы над <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A5%D0%BE%D1%80%D0%BD%D0%B5%D1%82">Хорнет</a>
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_skill-2">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BB%D0%B5%D1%88%D0%BD%D1%8F_%D0%B1%D0%BE%D0%B3%D0%BE%D0%BC%D0%BE%D0%BB%D0%B0">
+                                    <img class="vertical-centered" alt="Mantis_Claw.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Mantis_Claw.png" decoding="async" height="80" />
+                                    <span class="nowrap">Клешня богомола</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D1%80%D0%B8%D0%B1%D0%BD%D1%8B%D0%B5_%D0%BF%D1%83%D1%81%D1%82%D0%BE%D1%88%D0%B8">Грибные пустоши</a>
+                            </td>
+                            <td>
+                                Находится в верхней части <a href="https://hollowknight.fandom.com/ru/wiki/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BD%D1%8F_%D0%B1%D0%BE%D0%B3%D0%BE%D0%BC%D0%BE%D0%BB%D0%BE%D0%B2">Деревни богомолов</a>
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_skill-3">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B5">
+                                    <img class="vertical-centered" alt="Crystal_Heart.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Crystal_Heart.png" decoding="async" height="80" />
+                                    <span class="nowrap">Кристальное сердце</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B8%D0%BA">Кристальный пик</a>
+                            </td>
+                            <td>
+                                Находится в правой части Пика, в теле большого горного голема
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_skill-4">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%BE%D0%BD%D0%B0%D1%80%D1%88%D0%B8%D0%B5_%D0%BA%D1%80%D1%8B%D0%BB%D1%8C%D1%8F">
+                                    <img class="vertical-centered" alt="Monarch_Wings.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Monarch_Wings.png" decoding="async" height="80" />
+                                    <span class="nowrap">Монаршие крылья</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%94%D1%80%D0%B5%D0%B2%D0%BD%D0%B8%D0%B9_%D0%BA%D0%BE%D1%82%D0%BB%D0%BE%D0%B2%D0%B0%D0%BD">Древний котлован</a>
+                            </td>
+                            <td>
+                                Находятся за <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A0%D0%B0%D0%B7%D0%B1%D0%B8%D1%82%D1%8B%D0%B9_%D0%A1%D0%BE%D1%81%D1%83%D0%B4">Разбитым Сосудом</a>
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_skill-5">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B5%D0%B7%D0%B0_%D0%98%D0%B7%D0%BC%D1%8B">
+                                    <img class="vertical-centered" alt="Isma's_Tear.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Isma's_Tear.png" decoding="async" height="80" />
+                                    <span class="nowrap">Слеза Измы</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B5_%D1%81%D1%82%D0%BE%D0%BA%D0%B8">Королевские стоки</a>
+                            </td>
+                            <td>
+                                Находится на трупе Измы в <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A0%D0%BE%D1%89%D0%B0_%D0%98%D0%B7%D0%BC%D1%8B">Роще Измы</a>
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_skill-6">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A2%D0%B0%D0%B2%D1%80%D0%BE_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%8F">
+                                    <img class="vertical-centered" alt="King's_Brand.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/King's_Brand.png" decoding="async" height="80" />
+                                    <span class="nowrap">Тавро Короля</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D1%80%D0%B0%D0%B9_%D0%BA%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D1%82%D0%B2%D0%B0">Край королевства</a>
+                            </td>
+                            <td>
+                                Получается в <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%B1%D1%80%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B0%D0%BD%D1%86%D0%B8%D1%80%D1%8C">Сброшенном панцире</a> после второй победы над <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A5%D0%BE%D1%80%D0%BD%D0%B5%D1%82">Хорнет</a>
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
+                            </td>
+                        </tr>
+                        <tr class="uncompleted" id="hk_skill-7">
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A2%D0%B5%D0%BD%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BD%D0%B0%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0">
+                                    <img class="vertical-centered" alt="Shade_Cloak.png" src="https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/hk/skills/Shade_Cloak.png" decoding="async" height="80" />
+                                    <span class="nowrap">Теневая накидка</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://hollowknight.fandom.com/ru/wiki/%D0%91%D0%B5%D0%B7%D0%B4%D0%BD%D0%B0">Бездна</a>
+                            </td>
+                            <td>
+                                Получается в правой части локации, в чаше с пустотой
+                            </td>
+                            <td>
+                                2%
+                            </td>
+                            <td>
+                                <button class="button-mark rounded-border" onclick="toggle(this, '2', 0, 'percent')"></button>
                             </td>
                         </tr>
                     </tbody>
@@ -511,16 +884,18 @@
         <footer class="container-center text-center">
             <span><b>Hollow Knight Completion checklist by mirakzen</b></span><br>
             <span>Версия 0.0 (RUS)</span><br>
-            <button class="text-button" onclick="reset_storage()"><b>Сбросить прогресс</b></button>
+            <button class="text-button" onclick="reset_localstorage()"><b>Сбросить прогресс</b></button>
         </footer>
 
         <script src="custom_scripts.js"></script>
         <script type="text/javascript">
             window.onload = function() {
-                show_stored_page_data("hk", "nail", 4, "counter-1", true, false, 0);
-                show_stored_page_data("hk", "pale_ore", 6, "counter-2", false, false, 0);
-                show_stored_page_data("hk", "nail_art", 3, "counter-3", true, false, 0);
-                show_stored_page_data("hk", "mask_shard", 16, "counter-4", false, false, 4);
+                show_page_localstorage("hk", "nail", 4, "counter-1", "");
+                show_page_localstorage("hk", "pale_ore", 6, "counter-2", "");
+                show_page_localstorage("hk", "nail_art", 3, "counter-3", "");
+                show_page_localstorage("hk", "mask_shard", 16, "counter-4", "entire");
+                show_page_localstorage("hk", "vessel_fragment", 9, "counter-5", "entire");
+                show_page_localstorage("hk", "skill", 7, "counter-6", "percent");
             };
         </script>
 

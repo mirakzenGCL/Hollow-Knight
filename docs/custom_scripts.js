@@ -1,4 +1,4 @@
-function reset_storage(reload = true) {
+function reset_localstorage(reload = true) {
     localStorage.clear();
     if (reload) {
         document.location.reload();
@@ -6,106 +6,113 @@ function reset_storage(reload = true) {
 };
 
 
-function show_stored_page_data(game, data, amount, counter_id, mode_percent, mode_essence, entire) {
-    var count = 0;
+function parseFraction(str) {
+    nums = str.split('/');
+    if (nums.length == 1) {
+        return parseInt(nums[0]);
+    } else {
+        return parseInt(nums[1]);
+    }
+};
 
-    var percent_count = parseInt(document.getElementById("percent_counter").innerHTML);
-    var item_count = parseInt(document.getElementById("item_counter").innerHTML);
-    var essence_count = parseInt(document.getElementById("essence_counter").innerHTML);
+
+percent_counter = document.getElementById("percent_counter");
+action_counter = document.getElementById("item_counter");
+essence_counter = document.getElementById("essence_counter");
+
+
+function toggle(button, percent, essence, second_counter) {
+    var action = 1;
+    var percent_count = parseFraction(percent);
+
+    element_id = button.parentNode.parentNode.id;
+    element = document.getElementById(element_id);
+
+    table_id = button.parentNode.parentNode.parentNode.parentNode.id;
+    table = table_id.split('-');
+    
+    counter_id = "counter-" + table[1];
+    counter = document.getElementById(counter_id);
+
+    if ( element.classList.contains('uncompleted') ) {
+        element.className = "completed";
+        localStorage.setItem(element_id, JSON.stringify({"percent" : percent, "essence" : essence}));
+    } else {
+        element.className = "uncompleted";
+        localStorage.removeItem(element_id);
+        action = -1;
+    }
+
+    counter.textContent = parseInt(counter.innerHTML) + action;
+    if (second_counter) {
+        var second_count = 0;
+        switch (second_counter) {
+            case "percent":
+                second_count = action * percent_count;
+                break;
+            case "essence":
+                second_count = action * essence;
+                break;
+            case "entire":
+                count = parseInt(counter.innerHTML);
+                percent_count = Math.floor(count / percent_count) - Math.floor((count - action) / percent_count);
+                second_count = percent_count;
+                percent_count *= action;
+                break;
+        }
+        document.getElementById(counter_id + ".c").textContent = parseInt(document.getElementById(counter_id + ".c").innerHTML) + second_count;
+    }
+    
+    percent_counter.textContent = parseInt(percent_counter.innerHTML) + action * percent_count;
+    action_counter.textContent = parseInt(action_counter.innerHTML) + action;
+    essence_counter.textContent = parseInt(essence_counter.innerHTML) + action * essence;
+};
+
+
+function show_page_localstorage(game, data, amount, counter_id, second_counter) {
+    counter = document.getElementById(counter_id);
+
+    var percent_count = 0;
+    var action_count = 0;
+    var essence_count = 0;
+
+    var part = 1;
 
     for (var i = 1; i <= amount; i++) {
         var id = game + "_" + data + "-" + i;
-
-        var item = localStorage.getItem(id);
+        var item = JSON.parse(localStorage.getItem(id));
 
         if (item) {
-            if (counter_id != "") {
-                count++;
-            }
-            item_count++;
-            if (mode_percent) {
-                percent_count++;
-                if (item == 2) {
-                    percent_count++;
-                }
-            }
-            if (mode_essence) {
-                essence_count += item;
-            }
+            part = parseFraction(item["percent"]);
+            percent_count += parseFraction(item["percent"]);
+            action_count++;
+            essence_count += item["essence"];
 
             document.getElementById(id).className = "completed";
         }
     }
-    if (counter_id != "") {
-        document.getElementById(counter_id).textContent = count;
-        if (entire) {
-            entire_percent = Math.floor(count / entire);
-            percent_count += entire_percent;
-            document.getElementById(counter_id + ".c").textContent = entire_percent;
-        }
+
+    if (counter_id) {
+        counter.textContent = action_count;
     }
-    document.getElementById("percent_counter").textContent = percent_count;
-    document.getElementById("item_counter").textContent = item_count;
-    document.getElementById("essence_counter").textContent = essence_count;
-};
-
-
-function mark_item(element, percent, essence, entire) {
-    element_id = element.parentNode.parentNode.id;
-    table_id = element.parentNode.parentNode.parentNode.parentNode.id;
-
-    table = table_id.split('-');
-    count_id = "counter-" + table[1];
-    count_entire_id = count_id + ".c";
-    var count = parseInt(document.getElementById(count_id).innerHTML);
-    var count_entire = 0;
-    if (entire) {
-        count_entire = parseInt(document.getElementById(count_entire_id).innerHTML);
+    if (second_counter) {
+        var second_count = 0;
+        switch (second_counter) {
+            case "percent":
+                second_count = percent_count;
+                break;
+            case "essence":
+                second_count = essence_count;
+                break;
+            case "entire":
+                percent_count = Math.floor(action_count / part);
+                second_count = percent_count;
+                break;
+        }
+        document.getElementById(counter_id + ".c").textContent = second_count;
     }
 
-    var percent_count = parseInt(document.getElementById("percent_counter").innerHTML);
-    var item_count = parseInt(document.getElementById("item_counter").innerHTML);
-    var essence_count = parseInt(document.getElementById("essence_counter").innerHTML);
-
-    if ( document.getElementById(element_id).classList.contains('uncompleted') ) {
-        document.getElementById(element_id).className = "completed";
-        if (essence) {
-            localStorage.setItem(element_id, essence);
-        } else {
-            localStorage.setItem(element_id, 1);
-            if (percent == 2) {
-                localStorage.setItem(element_id, percent);
-            }
-        }
-        
-        count++;
-        item_count++;
-        if (percent) {
-            percent_count += percent;
-        }
-        if (essence) {
-            essence_count += essence;
-        }
-    } else {
-        document.getElementById(element_id).className = "uncompleted";
-        localStorage.removeItem(element_id);
-        count--;
-        item_count--;
-        if (percent) {
-            percent_count -= percent;
-        }
-        if (essence) {
-            essence_count -= essence;
-        }
-    }
-
-    document.getElementById(count_id).textContent = count;
-    if (entire) {
-        entire_percent = Math.floor(count / entire) - count_entire;
-        percent_count += entire_percent;
-        document.getElementById(count_entire_id).textContent = Math.floor(count / entire);
-    }
-    document.getElementById("percent_counter").textContent = percent_count;
-    document.getElementById("item_counter").textContent = item_count;
-    document.getElementById("essence_counter").textContent = essence_count;
+    percent_counter.textContent = parseInt(percent_counter.innerHTML) + percent_count;
+    action_counter.textContent = parseInt(action_counter.innerHTML) + action_count;
+    essence_counter.textContent = parseInt(essence_counter.innerHTML) + essence_count;
 };
