@@ -13,6 +13,10 @@
     --mark-bg-button-size-sm: 30px;
     --mark-bg-button-padding-sm: 1px;
 
+    --item-picture-height-100: 100px;
+    --item-picture-height-80: 80px;
+    --item-picture-height-60: 60px;
+
     --main-color: #5c6d9b;
     --main-text-color: #bdbebf; /* text-white */
     --completed-color: rgba(0, 255, 0, 0.15);
@@ -85,6 +89,11 @@ body {
     margin-left: auto;
 }
 
+.element-center-vertical {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
 .container-flex-horizontal {
     display: flex;
     flex-direction: row;
@@ -101,6 +110,13 @@ body {
     flex-wrap: wrap;
 }
 
+.container-wrapped {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
 footer {
     margin-top: auto;
     padding-top: 2rem;
@@ -114,8 +130,19 @@ footer {
     padding: 1%;
 }
 
+.p-05 {
+    padding: 0.5rem !important;
+}
+
 
 /* Margins */
+
+.margin-outer {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
 
 .mt-15 {
     margin-top: 1.5rem !important;
@@ -129,6 +156,10 @@ footer {
     margin-bottom: 0.5rem !important;
 }
 
+.mr-15 {
+    margin-right: 1.5rem !important;
+}
+
 .mr-0 {
     margin-right: 0 !important;
 }
@@ -136,6 +167,11 @@ footer {
 .mx-2 {
     margin-right: 2rem !important;
     margin-left: 2rem !important;
+}
+
+.mx-1 {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
 }
 
 
@@ -216,9 +252,17 @@ img.vertical-centered {
     vertical-align: middle;
 }
 
+img.item-height-100 {
+    max-height: var(--item-picture-height-100);
+}
 
+img.item-height-80 {
+    max-height: var(--item-picture-height-80);
+}
 
-
+img.item-height-60 {
+    max-height: var(--item-picture-height-60);
+}
 
 
 
@@ -341,6 +385,7 @@ img.vertical-centered {
 .button-mark,
 .button-mark-sm,
 .button-mark-custom-image,
+.button-mark-custom-image-no-bg,
 button.text-button {
     background-color: var(--transparent-03-color);
     cursor: pointer;
@@ -369,6 +414,10 @@ button.text-button {
 
     width: calc(var(--mark-bg-button-size-sm) + 2 * var(--mark-bg-button-padding-sm));
     height: calc(var(--mark-bg-button-size-sm) + 2 * var(--mark-bg-button-padding-sm));
+}
+
+.button-mark-custom-image-no-bg {
+    background: none !important;
 }
 
 button.text-button {
