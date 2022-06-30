@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ru" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Dark Souls Achievements checklist">
+        <meta name="author" content="Mir, mirakzen">
+
+        <title>HK TMP</title>
+        <link rel="shortcut icon" href="https://static.wikia.nocookie.net/hollowknight/images/6/64/Favicon.ico/revision/latest?cb=20170412193835&path-prefix=ru" />
+
+        <style type="text/css">
+            body {
+                margin: 0;
+                height: 100%;
+                font-size: 1rem;
+
+                font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+
+            .completed {
+                background: rgba(0, 255, 0, 0.2);
+            }
+
+            .needed {
+                color: white !important;
+                background: rgba(248, 148, 6, 1);
+            }
+
+            .uncompleted {
+                background: rgba(0, 0, 0, 0);
+            }
+
+            td {
+                padding: 0 1rem;
+            }
+
+            table, th, td {
+                border: 1px solid #575757;
+                border-collapse: collapse;
+            }
+
+            table, .cntr {
+                float: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            h2, h3 {
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            b {
+                color: cyan;
+            }
+
+            a {
+                color: cyan;
+                text-decoration: none;
+            }
+
+        </style>
+
+    </head>
+
+    <body style="background-color: #000;">
+        <main style="color: #bdbebf;">
+            <h1 style="text-align: center;">Проценты <span id="percent_counter">0</span>/112</h1>
+
+            <h2>Улучшения гвоздя</h2>
+            <table>
+                <tr id="tmphk-1" class="uncompleted">
+                    <td>
+                        Заточенный
+                    </td>
+                    <td>
+                        250 гео
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-2" class="uncompleted">
+                    <td>
+                        Изборождённый
+                    </td>
+                    <td>
+                        800 гео + 1 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%91%D0%BB%D0%B5%D0%B4%D0%BD%D0%B0%D1%8F_%D1%80%D1%83%D0%B4%D0%B0">Бледная руда</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-3" class="uncompleted">
+                    <td>
+                        Витой
+                    </td>
+                    <td>
+                        2000 гео + 2 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%91%D0%BB%D0%B5%D0%B4%D0%BD%D0%B0%D1%8F_%D1%80%D1%83%D0%B4%D0%B0">Бледная руда</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-4" class="uncompleted">
+                    <td>
+                        Чистый
+                    </td>
+                    <td>
+                        4000 гео + 3 <a href="https://hollowknight.fandom.com/ru/wiki/%D0%91%D0%BB%D0%B5%D0%B4%D0%BD%D0%B0%D1%8F_%D1%80%D1%83%D0%B4%D0%B0">Бледная руда</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>Техники гвоздя</h2>
+            <table>
+                <tr id="tmphk-5" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B8%D0%B9_%D1%83%D0%B4%D0%B0%D1%80" title="Великий удар">Великий удар</a>
+                    </td>
+                    <td>
+                        Обучение у <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80_%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D1%8F_%D0%A8%D0%B5%D0%BE">Мастера Шео</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-6" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A0%D0%B0%D1%81%D1%81%D0%B5%D0%BA%D0%B0%D1%8E%D1%89%D0%B8%D0%B9_%D1%83%D0%B4%D0%B0%D1%80" title="Рассекающий удар">Рассекающий удар</a>
+                    </td>
+                    <td>
+                        Обучение у <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80_%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D1%8F_%D0%9E%D1%80%D0%BE" title="Мастер гвоздя Оро">Мастера Оро</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-7" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A3%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9_%D1%83%D0%B4%D0%B0%D1%80" title="Ураганный удар">Ураганный удар</a>
+                    </td>
+                    <td>
+                        Обучение у <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80_%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D1%8F_%D0%9C%D0%B0%D1%82%D0%BE" title="Мастер гвоздя Мато">Мастера Мато</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+            <h2><a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%B2%D0%BE%D0%B7%D0%B4%D1%8C_%D0%B3%D1%80%D1%91%D0%B7" title="Гвоздь грёз">Гвоздь грёз</a> и Сущность</h2>
+            <table>
+                <tr id="tmphk-8" class="uncompleted">
+                    <td>
+                        Получение Гвоздя грёз
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-9" class="uncompleted">
+                    <td>
+                        Пробуждение Гвоздя грёз
+                    </td>
+                    <td>
+                        1800 Сущности
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-10" class="uncompleted">
+                    <td>
+                        Услышать последние слова <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9F%D1%80%D0%BE%D0%B2%D0%B8%D0%B4%D0%B8%D1%86%D0%B0" title="Провидица">Провидицы</a>
+                    </td>
+                    <td>
+                        2400 Сущности
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h2><a href="https://hollowknight.fandom.com/ru/wiki/%D0%9E%D1%81%D0%BA%D0%BE%D0%BB%D0%BE%D0%BA_%D0%BC%D0%B0%D1%81%D0%BA%D0%B8" title="Гвоздь грёз">Маски</a></h2>
+            <table>
+                <tr id="tmphk-11" class="uncompleted">
+                    <td>
+                        Получение 1-ой маски
+                    </td>
+                    <td>
+                        4 осколка маски
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-12" class="uncompleted">
+                    <td>
+                        Получение 2-ой маски
+                    </td>
+                    <td>
+                        4 осколка маски
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-13" class="uncompleted">
+                    <td>
+                        Получение 3-ей маски
+                    </td>
+                    <td>
+                        4 осколка маски
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-14" class="uncompleted">
+                    <td>
+                        Получение 4-ой маски
+                    </td>
+                    <td>
+                        4 осколка маски
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h2><a href="https://hollowknight.fandom.com/ru/wiki/%D0%A7%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%BA_%D1%81%D0%BE%D1%81%D1%83%D0%B4%D0%B0" title="Гвоздь грёз">Сосуд</a></h2>
+            <table>
+                <tr id="tmphk-15" class="uncompleted">
+                    <td>
+                        Получение 1-ого сосуда
+                    </td>
+                    <td>
+                        3 черепка сосуда
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-16" class="uncompleted">
+                    <td>
+                        Получение 2-ого сосуда
+                    </td>
+                    <td>
+                        3 черепка сосуда
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-17" class="uncompleted">
+                    <td>
+                        Получение 3-ого сосуда
+                    </td>
+                    <td>
+                        3 черепка сосуда
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h2><a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8" title="Гвоздь грёз">Способности</a></h2>
+            <table>
+                <tr id="tmphk-18" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A2%D0%B0%D0%B2%D1%80%D0%BE_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%8F" title="Тавро Короля">Тавро Короля</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-19" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B5" title="Кристальное сердце">Кристальное сердце</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-20" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D0%BB%D0%B5%D1%88%D0%BD%D1%8F_%D0%B1%D0%BE%D0%B3%D0%BE%D0%BC%D0%BE%D0%BB%D0%B0" title="Клешня богомола">Клешня богомола</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-21" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%BE%D0%BD%D0%B0%D1%80%D1%88%D0%B8%D0%B5_%D0%BA%D1%80%D1%8B%D0%BB%D1%8C%D1%8F" title="Монаршие крылья">Монаршие крылья</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-22" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D0%BB%D0%B5%D0%B7%D0%B0_%D0%98%D0%B7%D0%BC%D1%8B" title="Слеза Измы">Слеза Измы</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-23" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9D%D0%B0%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0_%D0%BC%D0%BE%D1%82%D1%8B%D0%BB%D1%8C%D0%BA%D0%B0" title="Накидка мотылька">Накидка мотылька</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-24" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A2%D0%B5%D0%BD%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BD%D0%B0%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0" title="Теневая накидка">Теневая накидка</a>
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h2><a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B0%D0%BA%D0%BB%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F" title="Гвоздь грёз">Заклинания</a></h2>
+            <table>
+                <tr id="tmphk-25" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D1%81%D1%82%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%B4%D1%83%D1%85" title="Мстительный дух">Мстительный дух</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-26" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A2%D0%B5%D0%BD%D0%B5%D0%B2%D0%B0%D1%8F_%D0%B4%D1%83%D1%88%D0%B0" title="Теневая душа">Теневая душа</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-27" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%92%D0%BE%D1%8E%D1%89%D0%B8%D0%B5_%D0%B4%D1%83%D1%85%D0%B8" title="Воющие духи">Воющие духи</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-28" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%92%D0%BE%D0%BF%D0%BB%D1%8C_%D0%91%D0%B5%D0%B7%D0%B4%D0%BD%D1%8B" title="Вопль Бездны">Вопль Бездны</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-29" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9E%D0%BF%D1%83%D1%81%D1%82%D0%BE%D1%88%D0%B0%D1%8E%D1%89%D0%B5%D0%B5_%D0%BF%D0%B8%D0%BA%D0%B5" title="Опустошающее пике">Опустошающее пике</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-30" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9D%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B0%D1%8F_%D1%82%D1%8C%D0%BC%D0%B0" title="Нисходящая тьма">Нисходящая тьма</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h2>Грезящие</h2>
+            <table>
+                <tr id="tmphk-31" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9B%D1%83%D1%80%D1%8C%D0%B5%D0%BD_%D0%A5%D1%80%D0%B0%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C" title="Лурьен Хранитель">Лурьен Хранитель</a>
+                    </td>
+                    <td>
+                        Сюжетный грезящий
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-32" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%BE%D0%BD%D0%BE%D0%BC%D0%BE%D0%BD%D0%B0_%D0%9D%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BD%D0%B8%D1%86%D0%B0" title="Мономона Наставница">Мономона Наставница</a>
+                    </td>
+                    <td>
+                        Сюжетный грезящий
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-33" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A5%D0%B5%D1%80%D1%80%D0%B0_%D0%97%D0%B2%D0%B5%D1%80%D1%8C" title="Херра Зверь">Херра Зверь</a>
+                    </td>
+                    <td>
+                        Сюжетный грезящий
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-34" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%B0%D0%BB%D1%8C%D0%B5%D0%BD" title="Гальен">Гальен</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-35" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%B0%D1%80%D0%BC%D1%83" title="Марму">Марму</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-36" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9C%D0%B0%D1%80%D0%BA%D0%BE%D1%82" title="Маркот">Маркот</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-37" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9A%D1%81%D0%B5%D1%80%D0%BE" title="Ксеро">Ксеро</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-38" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%9D%D0%B5%D0%B7%D1%80%D1%8F%D1%87%D0%B0%D1%8F" title="Незрячая">Незрячая</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-39" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%A1%D1%82%D0%B0%D1%80%D0%B5%D0%B9%D1%88%D0%B8%D0%BD%D0%B0_%D0%A5%D1%83" title="Старейшина Ху">Старейшина Ху</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-40" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D0%BE%D1%80%D0%B1" title="Горб">Горб</a>
+                    </td>
+                    <td>
+                        Воин грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+                <tr id="tmphk-41" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%93%D1%80%D0%B8%D0%BC%D0%BC" title="Гримм">Гримм</a>
+                    </td>
+                    <td>
+                        Босс грёз
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h2>Боссы</h2>
+            <table>
+                <tr id="tmphk-42" class="uncompleted">
+                    <td>
+                        <a href="https://hollowknight.fandom.com/ru/wiki/%D0%97%D0%B0%D0%B4%D1%83%D0%BC%D1%87%D0%B8%D0%B2%D1%8B%D0%B9_%D1%87%D1%80%D0%B5%D0%B2%D0%B5%D0%BD%D1%8C" title="Задумчивый чревень">Задумчивый чревень</a>
+                    </td>
+                    <td>
+                        1%
+                    </td>
+                    <td>
+                        <button onclick="mark_row(this)">Отметка</button>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
+        <div class="cntr" style="text-align: center; margin-top: 2rem; margin-bottom: 0;">
+            <span id="tmphk-output" style="color: white;"></span>
+            <!-- <button onclick="generate_export()"><b style="color: black;">Экспорт</b></button> -->
+        </div>
+        <div class="cntr" style="text-align: center; margin-top: 0; margin-bottom: 0;">
+            <input id="tmphk-input">
+            <button onclick="store_input()"><b style="color: black;">Импорт</b></button>
+        </div>
+
+        <div class="cntr" style="text-align: center; margin-top: 0; margin-bottom: 1rem;">
+            <button onclick="reset_storage()"><b style="color: black;">Сбросить прогресс</b></button>
+        </div>
+        
+
+        <script>
+            function reset_storage() {
+                for (var i = 1; i <= 41; i++) {
+                    var id = "tmphk-" + i;
+                    var item = localStorage.getItem(id);
+
+                    if (item) {
+                        localStorage.removeItem(id);
+                        document.getElementById(id).className = "uncompleted";
+                    }
+                }
+                percent_counter = document.getElementById("percent_counter");
+                percent_counter.textContent = 0;
+            };
+
+            function load_storage() {
+                percent_counter = document.getElementById("percent_counter");
+                for (var i = 1; i <= 41; i++) {
+                    var id = "tmphk-" + i;
+                    var item = localStorage.getItem(id);
+                    var percent_count = 1;
+
+                    if (item) {
+                        if (item == 1) {
+                            document.getElementById(id).className = "needed";
+                        } else {
+                            if (i >= 18 && i <= 24) {
+                                percent_count = 2;
+                            }
+                            document.getElementById(id).className = "completed";
+                            percent_counter.textContent = parseInt(percent_counter.innerHTML) + percent_count;
+                        }
+                    }
+                }
+                //generate_export();
+            }
+
+            function mark_row(button) {
+                element_id = button.parentNode.parentNode.id;
+                element = document.getElementById(element_id);
+
+                percent_counter = document.getElementById("percent_counter");
+                var action = 1;
+                var percent_count = 1;
+                const idarr = element_id.split("-");
+                var id = parseInt(idarr[1]);
+                if (id >= 18 && id <= 24) {
+                    percent_count = 2;
+                }
+
+                if ( element.classList.contains('uncompleted') ) {
+                    element.className = "needed";
+                    localStorage.setItem(element_id, 1);
+                    action = 0;
+                } else if ( element.classList.contains('needed') ) {
+                    element.className = "completed";
+                    localStorage.setItem(element_id, 2);
+                } else {
+                    element.className = "uncompleted";
+                    localStorage.removeItem(element_id);
+                    action = -1;
+                }
+                //generate_export();
+                percent_counter.textContent = parseInt(percent_counter.innerHTML) + action * percent_count;
+            }
+
+            function generate_export() {
+                str = "";
+                ans = "";
+
+                for (var i = 1; i <= 205; i++) {
+                    var id = "tmphk-" + i;
+                    var item = localStorage.getItem(id);
+                    if (item) {
+                        str += "1";
+                    } else {
+                        str += "0";
+                    }
+                    if (i % 41 == 0) {
+                        console.log(i);
+                        console.log(str);
+                        ans += parseInt(str , 3).toString(32).toUpperCase();
+                        if (i != 205) {
+                            ans += "-";
+                        }
+                        str = "";
+                    }
+                }
+                document.getElementById("tmphk-output").innerHTML = ans;
+            }
+
+            function store_input() {
+                // resetting storage
+                for (var i = 1; i <= 205; i++) {
+                    var id = "tmphk-" + i;
+                    var item = localStorage.getItem(id);
+
+                    if (item) {
+                        localStorage.removeItem(id);
+                        document.getElementById(id).className = "uncompleted";
+                    }
+                }
+
+                // parsing input
+                input = document.getElementById("tmphk-input").value;
+                parts = input.split("-");
+                console.log(parts);
+                p = 0;
+                parts.forEach((part) => {
+                    str = parseInt(part, 32).toString(2);
+                    delta_len = 41 - str.length
+                    if (delta_len != 0) {
+                        tmp_str = Array(delta_len).join("0");
+                        str = Array(delta_len + 1).join("0") + str;
+                    }
+                    for (var i = 0; i < str.length; i++) {
+                        if (str[i] == "1") {
+                            id = p * 41 + (i + 1);
+                            element_id = "tmphk-" + id;
+                            localStorage.setItem(element_id, 1);
+                        }
+                    }
+                    p += 1;
+                });
+
+                load_storage();
+            }
+
+            window.onload = load_storage;
+        </script>
+    </body>
+</html>
