@@ -9,6 +9,14 @@
         <title>HK TMP</title>
         <link rel="shortcut icon" href="https://static.wikia.nocookie.net/hollowknight/images/6/64/Favicon.ico/revision/latest?cb=20170412193835&path-prefix=ru" />
 
+        <script type="text/javascript">
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            var viewport = document.querySelector('meta[name="viewport"]');
+            if (width < 650) {
+                viewport.content = "width=device-width, initial-scale=" + (width / 675);
+            }
+        </script>
+
         <style type="text/css">
             body {
                 margin: 0;
@@ -32,7 +40,7 @@
             }
 
             td {
-                padding: 0 1rem;
+                padding: 0 0.5rem;
             }
 
             table, th, td {
@@ -75,7 +83,7 @@
             }
 
             main {
-                margin-top: 6rem;
+                margin-top: 7rem;
             }
 
         </style>
