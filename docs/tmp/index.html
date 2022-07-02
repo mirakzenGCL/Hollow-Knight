@@ -8,13 +8,16 @@
 
         <title>HK TMP</title>
 
+<!--
         <script type="text/javascript">
             var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
             var viewport = document.querySelector('meta[name="viewport"]');
+
             if (width < 650) {
                 viewport.content = "width=device-width, initial-scale=" + (width / 675);
             }
         </script>
+-->
 
         <style type="text/css">
             body {
@@ -94,6 +97,7 @@
     <body style="background-color: #000; color: #bdbebf;">
         <div class="nav">
             <h1 style="text-align: center;"><span id="percent_counter" style="color: green;">0</span> /112% |<span style="color: rgba(0, 255, 0, 0.2);">completed</span>|<span style="color: rgba(248, 148, 6, 1);">needed</span></h1>
+            <span id="test" style="color: green;">0</span>
         </div>
         <main>
             <h2>Улучшения гвоздя</h2>
@@ -1452,6 +1456,8 @@
                     }
                 }
                 generate_export();
+                test = document.getElementById("test");
+                percent_counter.textContent = width + "------" + (width / 675);
             }
 
             function mark_row(button) {
