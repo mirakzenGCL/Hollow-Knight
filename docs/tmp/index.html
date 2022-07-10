@@ -1529,17 +1529,17 @@
                 console.log(parts);
                 p = 0;
                 parts.forEach((part) => {
-                    str = parseInt(part, 32).toString(2);
+                    str = parseInt(part, 32).toString(3);
                     delta_len = 21 - str.length
                     if (delta_len != 0) {
                         tmp_str = Array(delta_len).join("0");
                         str = Array(delta_len + 1).join("0") + str;
                     }
                     for (var i = 0; i < str.length; i++) {
-                        if (str[i] == "1") {
+                        if (str[i] == "1" || str[i] == "2") {
                             id = p * 21 + (i + 1);
                             element_id = "tmphk-" + id;
-                            localStorage.setItem(element_id, 1);
+                            localStorage.setItem(element_id, int(str[i]);
                         }
                     }
                     p += 1;
