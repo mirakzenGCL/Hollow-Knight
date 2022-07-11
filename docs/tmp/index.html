@@ -1493,8 +1493,10 @@
                 for (var i = 1; i <= 105; i++) {
                     var id = "tmphk-" + i;
                     var item = localStorage.getItem(id);
-                    if (item) {
+                    if (item == 1) {
                         str += "1";
+                    } else if (item == 2) {
+                        str += "2";
                     } else {
                         str += "0";
                     }
