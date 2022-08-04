@@ -1515,15 +1515,7 @@
 
             function store_input() {
                 // resetting storage
-                for (var i = 1; i <= 105; i++) {
-                    var id = "tmphk-" + i;
-                    var item = localStorage.getItem(id);
-
-                    if (item) {
-                        localStorage.removeItem(id);
-                        document.getElementById(id).className = "uncompleted";
-                    }
-                }
+                reset_storage();
 
                 // parsing input
                 input = document.getElementById("tmphk-input").value;
