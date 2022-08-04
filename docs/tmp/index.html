@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Dark Souls Achievements checklist">
+        <meta name="description" content="Hollow Knight complete checklist">
         <meta name="author" content="Mir, mirakzen">
 
         <title>HK TMP</title>
@@ -94,7 +94,7 @@
 
     <body style="background-color: #000; color: #bdbebf;">
         <div class="nav">
-            <h1 style="text-align: center;"><span id="percent_counter" style="color: green;">0</span> /112%</h1>
+            <h1 style="text-align: center;"><span id="percent_counter" style="color: green;">0</span> /<span id="percent_counter_need" style="color: rgba(248, 148, 6, 1);">0</span>/112%</h1>
             <h1 style="text-align: center;"><span style="color: rgba(248, 148, 6, 1);">needed</span> | <span style="color: rgba(0, 255, 0, 0.2);">completed</span></h1>
         </div>
         <main>
@@ -1432,28 +1432,39 @@
                 }
                 percent_counter = document.getElementById("percent_counter");
                 percent_counter.textContent = 0;
+                percent_counter_need = document.getElementById("percent_counter_need");
+                percent_counter_need.textContent = 0;
                 generate_export();
             };
 
             function load_storage() {
                 percent_counter = document.getElementById("percent_counter");
+                percent_counter_need = document.getElementById("percent_counter_need");
+                var persent = 0;
+                var persent_need = 0;
                 for (var i = 1; i <= 105; i++) {
                     var id = "tmphk-" + i;
                     var item = localStorage.getItem(id);
                     var percent_count = 1;
 
                     if (item) {
+                        if (i >= 18 && i <= 24) {
+                            percent_count = 2;
+                        } else {
+                            percent_count = 1;
+                        }
+
                         if (item == 1) {
                             document.getElementById(id).className = "needed";
                         } else {
-                            if (i >= 18 && i <= 24) {
-                                percent_count = 2;
-                            }
                             document.getElementById(id).className = "completed";
-                            percent_counter.textContent = parseInt(percent_counter.innerHTML) + percent_count;
+                            persent += percent_count;
                         }
+                        persent_need += percent_count;
                     }
                 }
+                percent_counter.textContent = persent;
+                percent_counter_need.textContent = persent_need;
                 generate_export();
             }
 
@@ -1462,7 +1473,9 @@
                 element = document.getElementById(element_id);
 
                 percent_counter = document.getElementById("percent_counter");
+                percent_counter_need = document.getElementById("percent_counter_need");
                 var action = 1;
+                var action_need = 1;
                 var percent_count = 1;
                 const idarr = element_id.split("-");
                 var id = parseInt(idarr[1]);
@@ -1477,13 +1490,16 @@
                 } else if ( element.classList.contains('needed') ) {
                     element.className = "completed";
                     localStorage.setItem(element_id, 2);
+                    action_need = 0;
                 } else {
                     element.className = "uncompleted";
                     localStorage.removeItem(element_id);
                     action = -1;
+                    action_need = -1;
                 }
                 generate_export();
                 percent_counter.textContent = parseInt(percent_counter.innerHTML) + action * percent_count;
+                percent_counter_need.textContent = parseInt(percent_counter_need.innerHTML) + action_need * percent_count;
             }
 
             function generate_export() {
