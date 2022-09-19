@@ -1,15 +1,16 @@
 :root {
     --main-bg-color: #1a1e23;
-    --main-bg-image: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/q=100/hk/img/background.png");
+    --main-bg-image: url("https://static.mirakzen.ru/img/hollow_knight/background.png");
     --main-bg-content-color: #000000;
-    --main-bg-content-image: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/q=100/hk/img/background_content_faded.png");
+    --main-bg-content-image: url("https://static.mirakzen.ru/img/hollow_knight/background_content_faded.png");
 
-    /* --main-bg-button-image: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/h=48/ds/img/Mark_Dark_Sing.png"); */
-    --mark-bg-button-image: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/hk/img/Mark_Vessel.png");
+    /* --main-bg-button-image: url("https://static.mirakzen.ru/img/dark_souls/Mark_Dark_Sing.png"); */
+    --mark-bg-button-image: url("https://static.mirakzen.ru/img/hollow_knight/Mark_Vessel.png");
     --mark-bg-button-size: 50px;
     --mark-bg-button-padding: 5px;
 
-    --mark-bg-button-image-sm: url("https://cdn.statically.io/img/gcl-cdn.mirakzen.ru/h=28/hk/img/Mark_Vessel.png");
+    --mark-bg-button-image-sm: url("https://static.mirakzen.ru/img/hollow_knight/Mark_Vessel.png");
+    /* 28 */
     --mark-bg-button-size-sm: 30px;
     --mark-bg-button-padding-sm: 1px;
 
