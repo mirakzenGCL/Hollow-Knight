@@ -69,14 +69,15 @@ body {
         margin-left: 0;
         margin-right: 0;
     }
-    .body-background {
+    .body-background,
+    .content-background {
         background-image: none !important;
     }
 }
 
 @media (min-width:900px) {
     .container-center {
-        width: 80%;
+        width: 60%;
     }
 }
 
