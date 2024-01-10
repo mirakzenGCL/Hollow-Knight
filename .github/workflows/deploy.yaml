@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
+      - name: TAR files
+        env:
+          REPO: ${{ github.event.repository.name }}
+        run: tar -cvf mirakzenGCL_${{ env.REPO }}.tar src/
+      
+      - name: Copy TAR to host
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          source: "mirakzenGCL_${{ github.event.repository.name }}.tar"
+          target: "~/builds"
+      - name: Deploy on host
+        uses: appleboy/ssh-action@v1.0.0
+        env:
+          REPO: ${{ github.event.repository.name }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          script_stop: true
+          script: |
+            sudo rm ~/build_artifacts/mirakzenGCL_${{ env.REPO }}.tar || true
+            sudo mv ~/builds/mirakzenGCL_${{ env.REPO }}.tar ~/build_artifacts/
+            sudo rm -rf /var/www/mirakzenGCL_${{ env.REPO }}/*
+            sudo tar -xf ~/build_artifacts/mirakzenGCL_${{ env.REPO }}.tar -C /var/www/mirakzenGCL_${{ env.REPO }}/
+            sudo chmod -R 755 /var/www/mirakzenGCL_${{ env.REPO }}/
